@@ -1,0 +1,106 @@
+name: "METRIC"
+manufacturer: "hydsoft"
+model: "METRIC"
+description: "METRIC"
+labels:
+  - "metric"
+deviceResources:
+
+  -
+    name: cpuInfo
+    description: "cpu Info"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+  -
+    name: memInfo
+    description: "mem Info"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+  -
+    name: hostInfo
+    description: "host Info"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+  -
+    name: diskInfo
+    description: "disk Info"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+
+deviceCommands:
+
+  -
+    name: cpuInfo
+    get:
+    - { index: "1", object: "cpuInfo", parameter: "cpuInfo" }
+  -
+    name: memInfo
+    get:
+    - { index: "1", object: "memInfo", parameter: "memInfo" }
+  -
+    name: hostInfo
+    get:
+    - { index: "1", object: "hostInfo", parameter: "hostInfo" }
+  -
+    name: diskInfo
+    get:
+    - { index: "1", object: "diskInfo", parameter: "diskInfo" }
+    
+coreCommands:
+
+  -
+    name: cpuInfo
+    get:
+      path: "/api/v1/device/{deviceId}/cpuInfo"
+      responses:
+      -
+        code: "200"
+        description: "get the cpu Info"
+        expectedValues: ["cpuInfo"]
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+  -
+    name: memInfo
+    get:
+      path: "/api/v1/device/{deviceId}/memInfo"
+      responses:
+      -
+        code: "200"
+        description: "get the mem Info"
+        expectedValues: ["memInfo"]
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+  -
+    name: hostInfo
+    get:
+      path: "/api/v1/device/{deviceId}/hostInfo"
+      responses:
+      -
+        code: "200"
+        description: "get the host Info"
+        expectedValues: ["hostInfo"]
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+  -
+    name: diskInfo
+    get:
+      path: "/api/v1/device/{deviceId}/diskInfo"
+      responses:
+      -
+        code: "200"
+        description: "get the disk Info"
+        expectedValues: ["diskInfo"]
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []

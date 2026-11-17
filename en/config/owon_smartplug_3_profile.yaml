@@ -1,0 +1,213 @@
+name: "OWON-SMARTPLUG-3"
+manufacturer: "hydsoft"
+model: "OWON-ZIGBEE-SMARTPLUG"
+description: "OWON SMARTPLUG"
+labels:
+  - "mqtt"
+  - "owon"
+deviceResources:
+
+  -
+    name: smartPlugSwitch_1
+    description: "owon smartPlug smartPlugSwitch ep 1"
+    tag: "smartPlugSwitch_1"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+      units:
+        { defaultValue: "smartPlugSwitch_1" }
+  -
+    name: smartPlugSwitch_2
+    description: "owon smartPlug smartPlugSwitch ep 2"
+    tag: "smartPlugSwitch_2"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+      units:
+        { defaultValue: "smartPlugSwitch_2" }
+  -
+    name: smartPlugSwitch_3
+    description: "owon smartPlug smartPlugSwitch ep 3"
+    tag: "smartPlugSwitch_3"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+      units:
+        { defaultValue: "smartPlugSwitch_3" }
+  -
+    name: energy_1
+    description: "owon smartPlug energy ep 1"
+    tag: "energy_1"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+      units:
+        { defaultValue: "energy_1" }
+  -
+    name: energy_2
+    description: "owon smartPlug energy ep 2"
+    tag: "energy_2"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+      units:
+        { defaultValue: "energy_2" }
+  -
+    name: energy_3
+    description: "owon smartPlug energy ep 3"
+    tag: "energy_3"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+      units:
+        { defaultValue: "energy_3" }
+
+deviceCommands:
+
+  -
+    name: smartPlugSwitch_1
+    get:
+    - { index: "1", object: "smartPlugSwitch_1", parameter: "smartPlugSwitch_1" }
+    set:
+    - { index: "1", object: "smartPlugSwitch_1", parameter: "smartPlugSwitch_1" }
+  -
+    name: smartPlugSwitch_2
+    get:
+    - { index: "1", object: "smartPlugSwitch_2", parameter: "smartPlugSwitch_2" }
+    set:
+    - { index: "1", object: "smartPlugSwitch_2", parameter: "smartPlugSwitch_2" }
+  -
+    name: smartPlugSwitch_3
+    get:
+    - { index: "1", object: "smartPlugSwitch_3", parameter: "smartPlugSwitch_3" }
+    set:
+    - { index: "1", object: "smartPlugSwitch_3", parameter: "smartPlugSwitch_3" }
+  -
+    name: energy_1
+    get:
+    - { index: "1", object: "energy_1", parameter: "energy_1" }
+  -
+    name: energy_2
+    get:
+    - { index: "1", object: "energy_2", parameter: "energy_2" }
+  -
+    name: energy_3
+    get:
+    - { index: "1", object: "energy_3", parameter: "energy_3" }
+    
+coreCommands:
+
+  -
+    name: smartPlugSwitch_1
+    get:
+      path: "/api/v1/device/{deviceId}/smartPlugSwitch_1"
+      responses:
+      -
+        code: "200"
+        description: "get the smartPlugSwitch_1"
+        expectedValues: ["smartPlugSwitch_1"]
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+    put:
+      path: "/api/v1/device/{deviceId}/smartPlugSwitch_1"
+      parameterNames: ["smartPlugSwitch_1"]
+      responses:
+      -
+        code: "204"
+        description: "set the smartPlugSwitch_1."
+        expectedValues: []
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+  -
+    name: smartPlugSwitch_2
+    get:
+      path: "/api/v1/device/{deviceId}/smartPlugSwitch_2"
+      responses:
+      -
+        code: "200"
+        description: "get the smartPlugSwitch_2"
+        expectedValues: ["smartPlugSwitch_2"]
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+    put:
+      path: "/api/v1/device/{deviceId}/smartPlugSwitch_2"
+      parameterNames: ["smartPlugSwitch_2"]
+      responses:
+      -
+        code: "204"
+        description: "set the smartPlugSwitch_1."
+        expectedValues: []
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+  -
+    name: smartPlugSwitch_3
+    get:
+      path: "/api/v1/device/{deviceId}/smartPlugSwitch_3"
+      responses:
+      -
+        code: "200"
+        description: "get the smartPlugSwitch_3"
+        expectedValues: ["smartPlugSwitch_3"]
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+    put:
+      path: "/api/v1/device/{deviceId}/smartPlugSwitch_3"
+      parameterNames: ["smartPlugSwitch_3"]
+      responses:
+      -
+        code: "204"
+        description: "set the smartPlugSwitch_3."
+        expectedValues: []
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+  -
+    name: energy_1
+    get:
+      path: "/api/v1/device/{deviceId}/energy_1"
+      responses:
+      -
+        code: "200"
+        description: "get the energy_1"
+        expectedValues: ["energy_1"]
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+  -
+    name: energy_2
+    get:
+      path: "/api/v1/device/{deviceId}/energy_2"
+      responses:
+      -
+        code: "200"
+        description: "get the energy_2"
+        expectedValues: ["energy_2"]
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+  -
+    name: energy_3
+    get:
+      path: "/api/v1/device/{deviceId}/energy_3"
+      responses:
+      -
+        code: "200"
+        description: "get the energy_3"
+        expectedValues: ["energy_3"]
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []

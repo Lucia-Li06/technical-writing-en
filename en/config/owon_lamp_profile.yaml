@@ -1,0 +1,232 @@
+name: "OWON-LAMP"
+manufacturer: "hydsoft"
+model: "OWON-ZIGBEE-LAMP"
+description: "OWON LAMP"
+labels:
+  - "mqtt"
+  - "owon"
+deviceResources:
+
+  -
+    name: switch
+    description: "owon smartLight switch"
+    tag: "switch"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+      units:
+        { defaultValue: "switch" }
+  -
+    name: level
+    description: "owon smartLight level"
+    tag: "level"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+      units:
+        { defaultValue: "level" }
+  -
+    name: listAllDev
+    description: "owon list all zigbee device"
+    tag: "devices"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+      units:
+        { defaultValue: "devices" }
+  -
+    name: findNode
+    description: "owon find zigbee device"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+      units:
+        { defaultValue: "node" }
+  -
+    name: color
+    description: "owon smartLight color"
+    tag: "color"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+      units:
+        { defaultValue: "color" }
+  -
+    name: colorXY
+    description: "owon smartLight colorXY"
+    tag: "colorXY"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+      units:
+        { defaultValue: "colorXY" }
+
+
+deviceCommands:
+
+  -
+    name: switch
+    get:
+    - { index: "1", object: "switch", parameter: "switch" }
+    set:
+    - { index: "1", object: "switch", parameter: "switch" }
+  -
+    name: level
+    get:
+    - { index: "1", object: "level", parameter: "level" }
+    set:
+    - { index: "1", object: "level", parameter: "level" }
+  -
+    name: listAllDev
+    get:
+    - { index: "1", object: "listAllDev", parameter: "listAllDev" }
+  -
+    name: findNode
+    set:
+    - { index: "1", object: "findNode", parameter: "findNode" }
+  -
+    name: color
+    get:
+    - { index: "1", object: "color", parameter: "color" }
+    set:
+    - { index: "1", object: "color", parameter: "color" }
+  -
+    name: colorXY
+    get:
+    - { index: "1", object: "colorXY", parameter: "colorXY" }
+    set:
+    - { index: "1", object: "colorXY", parameter: "colorXY" }
+
+coreCommands:
+
+  -
+    name: switch
+    get:
+      path: "/api/v1/device/{deviceId}/switch"
+      responses:
+      -
+        code: "200"
+        description: "get the switch status"
+        expectedValues: ["switch"]
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+    put:
+      path: "/api/v1/device/{deviceId}/switch"
+      parameterNames: ["switch"]
+      responses:
+      -
+        code: "200"
+        description: "set switch success."
+        expectedValues: []
+      -
+        code: "204"
+        description: "set the switch."
+        expectedValues: []
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+  -
+    name: level
+    get:
+      path: "/api/v1/device/{deviceId}/level"
+      responses:
+      -
+        code: "200"
+        description: "get the level"
+        expectedValues: ["level"]
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+    put:
+      path: "/api/v1/device/{deviceId}/level"
+      parameterNames: ["level"]
+      responses:
+      -
+        code: "204"
+        description: "set the level"
+        expectedValues: []
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+  -
+    name: listAllDev
+    get:
+      path: "/api/v1/device/{deviceId}/listAllDev"
+      responses:
+      -
+        code: "200"
+        description: "get the listAllDev"
+        expectedValues: ["listAllDev"]
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+  -
+    name: findNode
+    put:
+      path: "/api/v1/device/{deviceId}/findNode"
+      parameterNames: ["findNode"]
+      responses:
+      -
+        code: "204"
+        description: "set the findNode."
+        expectedValues: []
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+  -
+    name: color
+    get:
+      path: "/api/v1/device/{deviceId}/color"
+      responses:
+      -
+        code: "200"
+        description: "get the color"
+        expectedValues: ["color"]
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+    put:
+      path: "/api/v1/device/{deviceId}/color"
+      parameterNames: ["color"]
+      responses:
+      -
+        code: "204"
+        description: "set the color."
+        expectedValues: []
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+  -
+    name: colorXY
+    get:
+      path: "/api/v1/device/{deviceId}/colorXY"
+      responses:
+      -
+        code: "200"
+        description: "get the colorXY"
+        expectedValues: ["colorXY"]
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+    put:
+      path: "/api/v1/device/{deviceId}/colorXY"
+      parameterNames: ["colorXY"]
+      responses:
+      -
+        code: "204"
+        description: "set the colorXY."
+        expectedValues: []
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []

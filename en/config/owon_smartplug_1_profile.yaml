@@ -1,0 +1,81 @@
+name: "OWON-SMARTPLUG-1"
+manufacturer: "hydsoft"
+model: "OWON-ZIGBEE-SMARTPLUG"
+description: "OWON SMARTPLUG"
+labels:
+  - "mqtt"
+  - "owon"
+deviceResources:
+
+  -
+    name: smartPlugSwitch_1
+    description: "owon smartPlug smartPlugSwitch ep 1"
+    tag: "smartPlugSwitch_1"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+      units:
+        { defaultValue: "smartPlugSwitch_1" }
+  -
+    name: energy_1
+    description: "owon smartPlug energy ep 1"
+    tag: "energy_1"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+      units:
+        { defaultValue: "energy_1" }
+
+deviceCommands:
+
+  -
+    name: smartPlugSwitch_1
+    get:
+    - { index: "1", object: "smartPlugSwitch_1", parameter: "smartPlugSwitch_1" }
+    set:
+    - { index: "1", object: "smartPlugSwitch_1", parameter: "smartPlugSwitch_1" }
+  -
+    name: energy_1
+    get:
+    - { index: "1", object: "energy_1", parameter: "energy_1" }
+
+coreCommands:
+
+  -
+    name: smartPlugSwitch_1
+    get:
+      path: "/api/v1/device/{deviceId}/smartPlugSwitch_1"
+      responses:
+      -
+        code: "200"
+        description: "get the smartPlugSwitch_1"
+        expectedValues: ["smartPlugSwitch_1"]
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+    put:
+      path: "/api/v1/device/{deviceId}/smartPlugSwitch_1"
+      parameterNames: ["smartPlugSwitch_1"]
+      responses:
+      -
+        code: "204"
+        description: "set the smartPlugSwitch_1."
+        expectedValues: []
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+  -
+    name: energy_1
+    get:
+      path: "/api/v1/device/{deviceId}/energy_1"
+      responses:
+      -
+        code: "200"
+        description: "get the energy_1"
+        expectedValues: ["energy_1"]
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []

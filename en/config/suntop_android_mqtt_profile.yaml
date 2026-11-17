@@ -1,0 +1,172 @@
+name: "ANDROID"
+manufacturer: "hydsoft"
+model: "ANDROID-MQTT"
+description: "Android Mqtt Device"
+labels:
+  - "mqtt"
+  - "android"
+deviceResources:
+
+  -
+    name: music_control
+    description: "music control"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+
+  -
+    name: screenshot
+    description: "screenshot"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+
+  -
+    name: device_control
+    description: "device control"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+
+  -
+    name: program
+    description: "program"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+
+  -
+    name: schedule
+    description: "schedule"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+        
+  -
+    name: replay
+    description: "replay"
+    properties:
+      value:
+        { type: "String", readWrite: "RW"}
+
+deviceCommands:
+
+  -
+    name: music_control
+    set:
+    - { index: "1", object: "music_control", parameter: "music_control" }
+  -
+    name: screenshot
+    set:
+    - { index: "1", object: "screenshot", parameter: "screenshot" }
+  -
+    name: device_control
+    set:
+    - { index: "1", object: "device_control", parameter: "device_control" }
+  -
+    name: program
+    set:
+    - { index: "1", object: "program", parameter: "program" }
+  -
+    name: schedule
+    set:
+    - { index: "1", object: "schedule", parameter: "schedule" }
+  -
+    name: replay
+    set:
+    - { index: "1", object: "replay", parameter: "replay" }
+    
+    
+coreCommands:
+
+  -
+    name: music_control
+    put:
+      path: "/api/v1/device/{deviceId}/music_control"
+      parameterNames: ["music_control"]
+      responses:
+      -
+        code: "200"
+        description: "set music_control success."
+        expectedValues: []
+      -
+        code: "204"
+        description: "set the music_control."
+        expectedValues: []
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+  -
+    name: screenshot
+    put:
+      path: "/api/v1/device/{deviceId}/screenshot"
+      parameterNames: ["screenshot"]
+      responses:
+      -
+        code: "200"
+        description: "set screenshot success."
+        expectedValues: []
+      -
+        code: "204"
+        description: "set the screenshot."
+        expectedValues: []
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+
+  -
+    name: device_control
+    put:
+      path: "/api/v1/device/{deviceId}/device_control"
+      parameterNames: ["device_control"]
+      responses:
+      -
+        code: "200"
+        description: "set device_control success."
+        expectedValues: []
+      -
+        code: "204"
+        description: "set the device_control."
+        expectedValues: []
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+  -
+    name: program
+    put:
+      path: "/api/v1/device/{deviceId}/program"
+      parameterNames: ["program"]
+      responses:
+      -
+        code: "200"
+        description: "set program success."
+        expectedValues: []
+      -
+        code: "204"
+        description: "set the program."
+        expectedValues: []
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
+  -
+    name: schedule
+    put:
+      path: "/api/v1/device/{deviceId}/schedule"
+      parameterNames: ["schedule"]
+      responses:
+      -
+        code: "200"
+        description: "set schedule success."
+        expectedValues: []
+      -
+        code: "204"
+        description: "set the schedule."
+        expectedValues: []
+      -
+        code: "503"
+        description: "service unavailable"
+        expectedValues: []
